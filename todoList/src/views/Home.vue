@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    Todo List
-    <HelloWorld msg="hi" />
+    <div class="home-title">Todo List</div>
+    <TodoInput />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import TodoInput from "../components/TodoInput/TodoInput.vue";
+import "./Home.scss";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    TodoInput,
   },
 };
 </script>

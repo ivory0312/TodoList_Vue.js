@@ -2,12 +2,19 @@
   <div class="home">
     <div class="todo">
       <div class="todo-title">Todo List</div>
-      <div class="todo-contents">
-        {{ input }}
-      </div>
       <div class="todo-button">
-        <input v-model="input" class="todo-button-input" type="text" />
-        <button v-on:click="send()" class="todo-button-send">send</button>
+        <input v-model="name" class="todo-button-input" type="text" />
+        <button @click="createTodo(name)" class="todo-button-send">send</button>
+      </div>
+      <div class="todo-contents">
+        <ul class="todo-contents-item">
+          <li v-for="(todo, index) in todos" v-bind:key="todo">
+            <span class="todo-contents-item-todos">{{ todo.name }}</span>
+            <button @click="deleteTodo(index)" class="todo-contents-item-btn">
+              X
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -18,17 +25,25 @@ export default {
   name: "Home",
   data() {
     return {
-      input: "",
-      list: [],
+      todos: [
+        {
+          name: "할 일",
+        },
+      ],
     };
   },
-  method: {
-    send: function() {
-      this.list.push(input);
+  methods: {
+    deleteTodo(index) {
+      this.todos.splice(index, 1);
+    },
+    createTodo(name) {
+      if (name != null) {
+        this.todos.push({ name: name });
+        this.name = null;
+      }
     },
   },
 };
-// console.log(data().input);
 </script>
 
 <style lang="scss" scoped>
@@ -50,11 +65,20 @@ export default {
     text-align: center;
   }
   &-contents {
-    padding: 10px;
+    &-item {
+      &-todos {
+        width: 100px;
+        margin-right: 10px;
+      }
+      &-btn {
+        background-color: none;
+        border: none;
+      }
+    }
   }
   &-button {
     padding: 10px;
-    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
 
     &-input {
       width: 220px;
@@ -70,5 +94,10 @@ export default {
       background-color: #0067bc;
     }
   }
+}
+
+li {
+  list-style: none;
+  margin: 10px 0;
 }
 </style>

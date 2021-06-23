@@ -3,7 +3,12 @@
     <div class="todo">
       <div class="todo-title">Todo List</div>
       <div class="todo-button">
-        <input v-model="name" class="todo-button-input" type="text" />
+        <input
+          v-model="name"
+          class="todo-button-input"
+          type="text"
+          @keypress.enter="createTodo(name)"
+        />
         <button @click="createTodo(name)" class="todo-button-send">send</button>
       </div>
       <div class="todo-contents">

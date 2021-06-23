@@ -3,9 +3,17 @@
     <div class="main-left">
       <div class="main-left-dot" />
       <div class="main-left-line" />
+      <div class="main-left-dot" />
+      <div class="main-left-line" />
+      <div class="main-left-dot" />
+      <div class="main-left-line" />
+      <div class="main-left-dot" />
     </div>
     <div class="main-right">
-      <span class="main-right-text">hi</span>
+      <div class="main-right-text">2021.06.08 프로젝트 계획서 쓰기</div>
+      <div class="main-right-text">2021.06.16 계속 미루기</div>
+      <div class="main-right-text">2021.06.17 프로젝트 생성</div>
+      <div class="main-right-text">2021.06.23 Todo List 완성</div>
     </div>
   </div>
 </template>
@@ -29,7 +37,6 @@ export default {
     &-dot {
       width: 10px;
       height: 10px;
-      margin-top: 4px;
       border-radius: 100px;
       background-color: #0067bc;
     }
@@ -42,6 +49,10 @@ export default {
   &-right {
     float: left;
     width: 270px;
+
+    &-text {
+      margin-bottom: 30px;
+    }
   }
 }
 </style>
